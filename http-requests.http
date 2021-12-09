@@ -1,0 +1,8 @@
+### Totos los productos
+GET http://localhost:3000/products
+
+### Un solo producto
+GET http://localhost:3000/products/123
+
+### Categoria y producto
+GET http://localhost:3000/categories/nombre-de-la-categoria/products/nombre-del-producto
