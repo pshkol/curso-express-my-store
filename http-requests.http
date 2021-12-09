@@ -1,11 +1,21 @@
 ### Totos los productos con size
-GET http://localhost:3000/products?size=2
+GET http://localhost:3000/api/v1/products?size=2
 
 ### Un solo producto
-GET http://localhost:3000/products/123
+GET http://localhost:3000/api/v1/products/123
 
 ### Categoria y producto
-GET http://localhost:3000/categories/nombre-de-la-categoria/products/nombre-del-producto
+GET http://localhost:3000/api/v1/categories/nombre-de-la-categoria/products/nombre-del-producto
 
 ### Usuarios con limit y offset
-GET http://localhost:3000/users?limit=30&offset=10
+GET http://localhost:3000/api/v1/users?limit=30&offset=10
+
+### Creacion de un producto
+POST http://localhost:3000/api/v1/products
+Content-Type: application/json
+
+{
+  "name": "New product",
+  "price": 1209,
+  "image": "http://placeimg.com/640/480"
+}
