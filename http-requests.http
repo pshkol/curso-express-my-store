@@ -19,3 +19,16 @@ Content-Type: application/json
   "price": 1209,
   "image": "http://placeimg.com/640/480"
 }
+
+### Modificacion de un producto
+PATCH http://localhost:3000/api/v1/products/12
+Content-Type: application/json
+
+{
+  "name": "New product",
+  "price": 1209,
+  "image": "http://placeimg.com/640/480"
+}
+
+### Eliminacion de un producto
+DELETE http://localhost:3000/api/v1/products/12
