@@ -1,5 +1,5 @@
-### Totos los productos con size
-GET http://localhost:3000/api/v1/products?size=2
+### Totos los productos
+GET http://localhost:3000/api/v1/products
 
 ### Un solo producto
 GET http://localhost:3000/api/v1/products/999
@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Modificacion de un producto
-PATCH http://localhost:3000/api/v1/products/12
+PATCH http://localhost:3000/api/v1/products/2f2e0d8b-57db-45f7-8720-3d6e1dd47e16
 Content-Type: application/json
 
 {
@@ -31,4 +31,4 @@ Content-Type: application/json
 }
 
 ### Eliminacion de un producto
-DELETE http://localhost:3000/api/v1/products/12
+DELETE http://localhost:3000/api/v1/products/2f2e0d8b-57db-45f7-8720-3d6e1dd47e16
