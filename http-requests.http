@@ -1,8 +1,11 @@
-### Totos los productos
-GET http://localhost:3000/products
+### Totos los productos con size
+GET http://localhost:3000/products?size=2
 
 ### Un solo producto
 GET http://localhost:3000/products/123
 
 ### Categoria y producto
 GET http://localhost:3000/categories/nombre-de-la-categoria/products/nombre-del-producto
+
+### Usuarios con limit y offset
+GET http://localhost:3000/users?limit=30&offset=10
