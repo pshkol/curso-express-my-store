@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/v1/products?size=2
 
 ### Un solo producto
-GET http://localhost:3000/api/v1/products/123
+GET http://localhost:3000/api/v1/products/999
 
 ### Categoria y producto
 GET http://localhost:3000/api/v1/categories/nombre-de-la-categoria/products/nombre-del-producto
