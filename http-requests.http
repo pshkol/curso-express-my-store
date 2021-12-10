@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/v1/products
 
 ### Un solo producto
-GET http://localhost:3000/api/v1/products/2588bd10-2d6f-4945-854f-d26ccc950e81
+GET http://localhost:3000/api/v1/products/4$$$
 
 ### Categoria y producto
 GET http://localhost:3000/api/v1/categories/nombre-de-la-categoria/products/nombre-del-producto
@@ -15,19 +15,18 @@ POST http://localhost:3000/api/v1/products
 Content-Type: application/json
 
 {
-  "name": "New product",
+  "name": "product",
   "price": 1209,
   "image": "https://placeimg.com/640/480"
 }
 
 ### Modificacion de un producto
-PATCH http://localhost:3000/api/v1/products/2588bd10-2d6f-4945-854f-d26ccc950e81
+PATCH http://localhost:3000/api/v1/products/d5be2a61-452e-45f9-8b11-c951736dbdda
 Content-Type: application/json
 
 {
-  "name": "New product",
-  "price": 1209,
-  "image": "https://placeimg.com/640/480"
+  "name": "newproduct",
+  "price": 1209
 }
 
 ### Eliminacion de un producto
