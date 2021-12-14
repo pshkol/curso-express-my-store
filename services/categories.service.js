@@ -21,6 +21,16 @@ class CategoriesService {
     return this.categories;
   }
 
+  getOne(id) {
+    const category = this.categories.find(item => item.id === id);
+
+    if (!category) {
+      throw new boom.badRequest('Categoria no encontrada');
+    }
+
+    return category;
+  }
+
   create(name) {
     const duplicate = this.categories.some(item => item.name === name);
 
@@ -39,7 +49,7 @@ class CategoriesService {
     const category = this.categories.find(item => item.id === id);
 
     if (!category) {
-      throw new boom.badRequest('categoria no encontrada');
+      throw new boom.badRequest('Categoria no encontrada');
     }
 
     category.name = name;
@@ -51,7 +61,7 @@ class CategoriesService {
     const categoryIndex = this.categories.findIndex(item => item.id === id);
 
     if (categoryIndex === -1) {
-      throw new boom.badRequest('categoria no encontrada');
+      throw new boom.badRequest('Categoria no encontrada');
     }
 
     this.categories.splice(categoryIndex, 1);

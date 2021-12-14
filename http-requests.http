@@ -4,12 +4,6 @@ GET http://{{host}}:{{port}}/api/v1/products
 ### Un solo producto
 GET http://{{host}}:{{port}}/api/v1/products/4$$$
 
-### Categoria y producto
-GET http://{{host}}:{{port}}/api/v1/categories/nombre-de-la-categoria/products/nombre-del-producto
-
-### Usuarios con limit y offset
-GET http://{{host}}:{{port}}/api/v1/users?limit=30&offset=10
-
 ### Creacion de un producto
 POST http://{{host}}:{{port}}/api/v1/products
 Content-Type: application/json
@@ -35,6 +29,9 @@ DELETE http://{{host}}:{{port}}/api/v1/products/2f2e0d8b-57db-45f7-8720-3d6e1dd4
 ### Get all categories
 GET http://{{host}}:{{port}}/api/v1/categories/
 
+### Get one category
+GET http://{{host}}:{{port}}/api/v1/categories/7d710df6-35f0-4cce-a9fd-01c4aa65aee4
+
 ### Create category
 POST http://{{host}}:{{port}}/api/v1/categories/
 Content-Type: application/json
@@ -44,7 +41,7 @@ Content-Type: application/json
 }
 
 ### Update category
-PATCH http://{{host}}:{{port}}/api/v1/categories/d151af8e-ffba-4475-a485-d928ebd854e7
+PATCH http://{{host}}:{{port}}/api/v1/categories/7d710df6-35f0-4cce-a9fd-01c4aa65aee4
 Content-Type: application/json
 
 {
@@ -52,4 +49,32 @@ Content-Type: application/json
 }
 
 ### Delete category
-DELETE http://{{host}}:{{port}}/api/v1/categories/gdgdfg
+DELETE http://{{host}}:{{port}}/api/v1/categories/7d710df6-35f0-4cce-a9fd-01c4aa65aee4
+
+### Get all users
+GET http://{{host}}:{{port}}/api/v1/users/
+
+### Get one user
+GET http://{{host}}:{{port}}/api/v1/users/abb18873-0cb5-4ba7-8efc-a0da67633c9c
+
+### Create user
+POST http://{{host}}:{{port}}/api/v1/users/
+Content-Type: application/json
+
+{
+  "name": "otro",
+  "password": "1234"
+}
+
+### Update user
+PATCH http://{{host}}:{{port}}/api/v1/users/b1596879-558f-4c74-b42a-3c775a7a4a1b
+Content-Type: application/json
+
+{
+  "name": "otronombre",
+  "password": "otracontrasena"
+}
+
+### Delete user
+DELETE http://{{host}}:{{port}}/api/v1/users/b1596879-558f-4c74-b42a-3c775a7a4a1b
+
