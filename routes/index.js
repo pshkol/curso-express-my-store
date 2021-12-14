@@ -10,14 +10,6 @@ function routerApi(app) {
   router.use('/products', productsRouter);
   router.use('/users', usersRouter);
   router.use('/categories', categoriesRouter);
-
-  router.get('/', (req, res) => {
-    res.send('Hola mi server en Express');
-  });
-
-  router.get('/nueva-ruta', (req, res) => {
-    res.send('Hola, soy una nueva ruta');
-  })
 }
 
 module.exports = routerApi;

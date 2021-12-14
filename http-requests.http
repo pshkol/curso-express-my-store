@@ -1,17 +1,17 @@
 ### Totos los productos
-GET http://localhost:3000/api/v1/products
+GET http://{{host}}:{{port}}/api/v1/products
 
 ### Un solo producto
-GET http://localhost:3000/api/v1/products/4$$$
+GET http://{{host}}:{{port}}/api/v1/products/4$$$
 
 ### Categoria y producto
-GET http://localhost:3000/api/v1/categories/nombre-de-la-categoria/products/nombre-del-producto
+GET http://{{host}}:{{port}}/api/v1/categories/nombre-de-la-categoria/products/nombre-del-producto
 
 ### Usuarios con limit y offset
-GET http://localhost:3000/api/v1/users?limit=30&offset=10
+GET http://{{host}}:{{port}}/api/v1/users?limit=30&offset=10
 
 ### Creacion de un producto
-POST http://localhost:3000/api/v1/products
+POST http://{{host}}:{{port}}/api/v1/products
 Content-Type: application/json
 
 {
@@ -21,7 +21,7 @@ Content-Type: application/json
 }
 
 ### Modificacion de un producto
-PATCH http://localhost:3000/api/v1/products/d5be2a61-452e-45f9-8b11-c951736dbdda
+PATCH http://{{host}}:{{port}}/api/v1/products/d5be2a61-452e-45f9-8b11-c951736dbdda
 Content-Type: application/json
 
 {
@@ -30,4 +30,26 @@ Content-Type: application/json
 }
 
 ### Eliminacion de un producto
-DELETE http://localhost:3000/api/v1/products/2f2e0d8b-57db-45f7-8720-3d6e1dd47e16
+DELETE http://{{host}}:{{port}}/api/v1/products/2f2e0d8b-57db-45f7-8720-3d6e1dd47e16
+
+### Get all categories
+GET http://{{host}}:{{port}}/api/v1/categories/
+
+### Create category
+POST http://{{host}}:{{port}}/api/v1/categories/
+Content-Type: application/json
+
+{
+  "name": "Categoria 2"
+}
+
+### Update category
+PATCH http://{{host}}:{{port}}/api/v1/categories/d151af8e-ffba-4475-a485-d928ebd854e7
+Content-Type: application/json
+
+{
+  "name": "Categoria 3"
+}
+
+### Delete category
+DELETE http://{{host}}:{{port}}/api/v1/categories/gdgdfg
