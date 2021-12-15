@@ -1,0 +1,13 @@
+version: '3.10'
+services:
+  database:
+    image: postgres
+    container_name: postgres
+    ports:
+      - '5431:5432'
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: curso-express-my-store
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data

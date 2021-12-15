@@ -17,9 +17,9 @@ router.get('/:id',
   }
 })
 
-router.get('/', (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
-    res.json(service.getAll());
+    res.json(await service.getAll());
   } catch (error) {
     next(error);
   }

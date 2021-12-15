@@ -1,8 +1,10 @@
 const faker = require('faker');
 const boom = require('@hapi/boom');
+const pool = require('../libs/postgres.pool');
 
 class UsersService {
   constructor() {
+    this.pool = pool;
     this.users = [];
     this.users.push({
       id: faker.datatype.uuid(),
@@ -11,8 +13,10 @@ class UsersService {
     })
   }
 
-  getAll() {
-    return this.users;
+  async getAll() {
+    const query = 'SELECT * FROM tasks';
+    const rta = await this.pool.query(query);
+    return rta.rows;
   }
 
   getOne(id) {

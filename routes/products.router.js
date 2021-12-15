@@ -8,7 +8,7 @@ const router = express.Router();
 const service = new ProductsService();
 
 router.get('/', async (req, res) => {
-  const products = await service.find();
+  const products = await service.findAll();
   res.json(products);
 });
 
