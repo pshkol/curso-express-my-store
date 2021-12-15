@@ -1,10 +1,10 @@
 const faker = require('faker');
 const boom = require('@hapi/boom');
-const pool = require('../libs/postgres.pool');
+
+const { models } = require('../libs/sequelize');
 
 class UsersService {
   constructor() {
-    this.pool = pool;
     this.users = [];
     this.users.push({
       id: faker.datatype.uuid(),
@@ -14,56 +14,38 @@ class UsersService {
   }
 
   async getAll() {
-    const query = 'SELECT * FROM tasks';
-    const rta = await this.pool.query(query);
-    return rta.rows;
+    return await models.User.findAll();
   }
 
-  getOne(id) {
-    const user = this.users.find(item => item.id === id);
+  async getOne(id) {
+    const user = await models.User.findByPk(id);
 
     if (!user) {
-      throw new boom.badRequest('Usuario no encontrado');
+      throw new boom.notFound('Usuario no encontrado');
     }
 
     return user;
   }
 
-  create(name, password) {
-    if (!name || !password) {
-     throw new boom.badRequest('Falta el nombre o la contrasena');
+  async create(data) {
+    if (!data) {
+     throw new boom.badRequest('Falta la data');
     }
 
-    this.users.push({
-      id: faker.datatype.uuid(),
-      name: name,
-      password: password,
-    })
+    return models.User.create(data);
   }
 
-  update(id, data) {
-    let user = this.users.find(item => item.id === id);
+  async update(id, changes) {
+    const user = await this.getOne(id);
 
-    if (!user) {
-      throw new boom.badRequest('Usuario no encontrado');
-    }
-
-    user = {
-      ...user,
-      ...data
-    }
-
-    return user;
+    return await user.update(changes);
   }
 
-  delete(id) {
-    let userIndex = this.users.findIndex(item => item.id === id);
+  async delete(id) {
+    const user = await this.getOne(id);
 
-    if (userIndex === -1) {
-      throw new boom.badRequest('Usuario no encotrado');
-    }
-
-    this.users.splice(userIndex, 1);
+    await user.destroy();
+    return { id };
   }
 }
 

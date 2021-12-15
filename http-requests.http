@@ -55,26 +55,26 @@ DELETE http://{{host}}:{{port}}/api/v1/categories/7d710df6-35f0-4cce-a9fd-01c4aa
 GET http://{{host}}:{{port}}/api/v1/users/
 
 ### Get one user
-GET http://{{host}}:{{port}}/api/v1/users/abb18873-0cb5-4ba7-8efc-a0da67633c9c
+GET http://{{host}}:{{port}}/api/v1/users/12
 
 ### Create user
 POST http://{{host}}:{{port}}/api/v1/users/
 Content-Type: application/json
 
 {
-  "name": "otro",
+  "email": "otro4",
   "password": "1234"
 }
 
 ### Update user
-PATCH http://{{host}}:{{port}}/api/v1/users/b1596879-558f-4c74-b42a-3c775a7a4a1b
+PATCH http://{{host}}:{{port}}/api/v1/users/12
 Content-Type: application/json
 
 {
-  "name": "otronombre",
+  "email": "otronombre2",
   "password": "otracontrasena"
 }
 
 ### Delete user
-DELETE http://{{host}}:{{port}}/api/v1/users/b1596879-558f-4c74-b42a-3c775a7a4a1b
+DELETE http://{{host}}:{{port}}/api/v1/users/12
 

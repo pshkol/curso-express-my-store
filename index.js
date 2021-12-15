@@ -1,7 +1,7 @@
 const express = require('express');
 
 const routerApi = require('./routes');
-const { logErrors, errorHandler, boomErrorHandler } = require('./middlewares/error.handler');
+const { errorHandler, boomErrorHandler, sequelizeErrorHandler } = require('./middlewares/error.handler');
 
 const app = express();
 const port = 3050;
@@ -9,7 +9,7 @@ const port = 3050;
 app.use(express.json());
 routerApi(app);
 
-app.use(logErrors);
+app.use(sequelizeErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
 

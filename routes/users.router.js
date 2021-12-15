@@ -9,9 +9,9 @@ const service = new UsersService();
 
 router.get('/:id',
   validatorHandler(getUserSchema, 'params'),
-  (req, res, next) => {
+  async (req, res, next) => {
   try {
-    res.json(service.getOne(req.params.id));
+    res.json(await service.getOne(req.params.id));
   } catch (error) {
     next(error);
   }
@@ -27,10 +27,10 @@ router.get('/', async (req, res, next) => {
 
 router.post('/',
   validatorHandler(createUserSchema, 'body'),
-  (req, res, next) => {
+  async (req, res, next) => {
   try {
-    service.create(req.body.name, req.body.password);
-    res.end();
+    const newUser = await service.create(req.body);
+    res.json(newUser);
   } catch (error) {
     next(error);
   }
@@ -39,9 +39,9 @@ router.post('/',
 router.patch('/:id',
   validatorHandler(getUserSchema, 'params'),
   validatorHandler(createUserSchema, 'body'),
-  (req, res, next) => {
+  async (req, res, next) => {
   try {
-    res.json(service.update(req.params.id, req.body));
+    res.json(await service.update(req.params.id, req.body));
   } catch (error) {
     next(error);
   }
@@ -49,10 +49,9 @@ router.patch('/:id',
 
 router.delete('/:id',
   validatorHandler(getUserSchema, 'params'),
-  (req, res, next) => {
+  async (req, res, next) => {
   try {
-    service.delete(req.params.id);
-    res.end();
+    res.json(await service.delete(req.params.id));
   } catch (error) {
     next(error);
   }
