@@ -62,9 +62,9 @@ POST http://{{host}}:{{port}}/api/v1/users/
 Content-Type: application/json
 
 {
-  "email": "pavlo",
+  "email": "juan",
   "password": "1234",
-  "role": "admin"
+  "role": "customer"
 }
 
 ### Update user
@@ -78,4 +78,35 @@ Content-Type: application/json
 
 ### Delete user
 DELETE http://{{host}}:{{port}}/api/v1/users/12
+
+### Get all customers
+GET http://{{host}}:{{port}}/api/v1/customers/
+
+### Get one customer
+GET http://{{host}}:{{port}}/api/v1/customers/2
+
+### Create customer
+POST http://{{host}}:{{port}}/api/v1/customers/
+Content-Type: application/json
+
+{
+  "name": "Diego",
+  "lastName": "Maradona",
+  "phone": "99999999",
+  "user": {
+    "email": "otro2@otro2.com",
+    "password": "4321"
+  }
+}
+
+### Update customer
+PATCH http://{{host}}:{{port}}/api/v1/customers/3
+Content-Type: application/json
+
+{
+  "name": "updated customer"
+}
+
+### Delete customer
+DELETE http://{{host}}:{{port}}/api/v1/customers/2
 
