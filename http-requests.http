@@ -62,8 +62,9 @@ POST http://{{host}}:{{port}}/api/v1/users/
 Content-Type: application/json
 
 {
-  "email": "otro4",
-  "password": "1234"
+  "email": "pavlo",
+  "password": "1234",
+  "role": "admin"
 }
 
 ### Update user
