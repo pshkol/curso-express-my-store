@@ -1,7 +1,7 @@
 const { Model, DataTypes, Sequelize } = require("sequelize");
 const {USER_TABLE} = require("./user.model");
 
-const TABLE_NAME = "customers";
+const CUSTOMER_TABLE = "customers";
 
 const CustomerSchema = {
   id: {
@@ -52,10 +52,10 @@ class Customer extends Model {
     return {
       sequelize,
       modelName: 'Customer',
-      tableName: TABLE_NAME,
+      tableName: CUSTOMER_TABLE,
       timestamps: false,
     }
   }
 }
 
-module.exports = { Customer, CustomerSchema, TABLE_NAME };
+module.exports = { Customer, CustomerSchema, CUSTOMER_TABLE };

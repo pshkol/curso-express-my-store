@@ -10,31 +10,26 @@ const service = new CategoriesService();
 
 router.get('/:id',
   validateHandler(getCategorySchema, 'params'),
-  (req, res, next) => {
+  async (req, res, next) => {
   try {
-    const category = service.getOne(req.params.id);
-
+    const category = await service.getOne(req.params.id);
     res.json(category);
   } catch (error) {
     next(error);
   }
 })
 
-router.get('/', (req, res, next) => {
-  const categories = service.getAll();
-
+router.get('/', async (req, res, next) => {
+  const categories = await service.getAll();
   res.json(categories);
 })
 
 router.post('/',
   validateHandler(createCategorySchema, 'body'),
-  (req, res, next) => {
+  async (req, res, next) => {
   try {
-    if (!req.body.name) {
-      throw new boom.badRequest('falta el parametro name');
-    }
-    service.create(req.body.name);
-    res.end();
+    const newCategory = await service.create(req.body);
+    res.json(newCategory);
   } catch (error) {
     next(error);
   }
@@ -43,13 +38,9 @@ router.post('/',
 router.patch('/:id',
   validateHandler(getCategorySchema,'params'),
   validateHandler(createCategorySchema, 'body'),
-  (req, res, next) => {
+  async (req, res, next) => {
   try {
-    if (!req.body.name) {
-      throw new boom.badRequest('falta el nombre');
-    }
-
-    res.json(service.update(req.params.id, req.body.name))
+    res.json(await service.update(req.params.id, req.body))
   } catch (error) {
     next(error);
   }
@@ -57,10 +48,9 @@ router.patch('/:id',
 
 router.delete('/:id',
   validateHandler(getCategorySchema, 'params'),
-  (req, res, next) => {
+  async (req, res, next) => {
   try {
-    service.delete(req.params.id);
-    res.end();
+    res.json(await service.delete(req.params.id));
   } catch (error) {
     next(error);
   }

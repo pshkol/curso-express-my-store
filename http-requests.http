@@ -2,20 +2,20 @@
 GET http://{{host}}:{{port}}/api/v1/products
 
 ### Un solo producto
-GET http://{{host}}:{{port}}/api/v1/products/4$$$
+GET http://{{host}}:{{port}}/api/v1/products/4
 
 ### Creacion de un producto
 POST http://{{host}}:{{port}}/api/v1/products
 Content-Type: application/json
 
 {
-  "name": "product",
-  "price": 1209,
-  "image": "https://placeimg.com/640/480"
+  "name": "product2",
+  "price": 12093,
+  "categoryId": 5
 }
 
 ### Modificacion de un producto
-PATCH http://{{host}}:{{port}}/api/v1/products/d5be2a61-452e-45f9-8b11-c951736dbdda
+PATCH http://{{host}}:{{port}}/api/v1/products/1
 Content-Type: application/json
 
 {
@@ -24,32 +24,32 @@ Content-Type: application/json
 }
 
 ### Eliminacion de un producto
-DELETE http://{{host}}:{{port}}/api/v1/products/2f2e0d8b-57db-45f7-8720-3d6e1dd47e16
+DELETE http://{{host}}:{{port}}/api/v1/products/2
 
 ### Get all categories
 GET http://{{host}}:{{port}}/api/v1/categories/
 
 ### Get one category
-GET http://{{host}}:{{port}}/api/v1/categories/7d710df6-35f0-4cce-a9fd-01c4aa65aee4
+GET http://{{host}}:{{port}}/api/v1/categories/4
 
 ### Create category
 POST http://{{host}}:{{port}}/api/v1/categories/
 Content-Type: application/json
 
 {
-  "name": "Categoria 2"
+  "name": "Categoria 1"
 }
 
 ### Update category
-PATCH http://{{host}}:{{port}}/api/v1/categories/7d710df6-35f0-4cce-a9fd-01c4aa65aee4
+PATCH http://{{host}}:{{port}}/api/v1/categories/2
 Content-Type: application/json
 
 {
-  "name": "Categoria 3"
+  "name": "Categoria actualizada"
 }
 
 ### Delete category
-DELETE http://{{host}}:{{port}}/api/v1/categories/7d710df6-35f0-4cce-a9fd-01c4aa65aee4
+DELETE http://{{host}}:{{port}}/api/v1/categories/3
 
 ### Get all users
 GET http://{{host}}:{{port}}/api/v1/users/
