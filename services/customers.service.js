@@ -5,12 +5,14 @@ const { models } = require('./../libs/sequelize');
 class CustomersService {
   async getAll() {
     return await models.Customer.findAll({
-      include: ['user']
+      include: ['user', 'orders'],
     });
   }
 
   async getOne(id) {
-    const customer = await models.Customer.findByPk(id);
+    const customer = await models.Customer.findByPk(id, {
+      include: ['user', 'orders'],
+    });
 
     if (!customer) {
       throw new boom.notFound('Customer no encontrado');

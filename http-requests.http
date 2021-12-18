@@ -11,7 +11,7 @@ Content-Type: application/json
 {
   "name": "product2",
   "price": 12093,
-  "categoryId": 5
+  "categoryId": 1
 }
 
 ### Modificacion de un producto
@@ -90,11 +90,11 @@ POST http://{{host}}:{{port}}/api/v1/customers/
 Content-Type: application/json
 
 {
-  "name": "Diego",
-  "lastName": "Maradona",
+  "name": "Diego2",
+  "lastName": "Maradona2",
   "phone": "99999999",
   "user": {
-    "email": "otro2@otro2.com",
+    "email": "otro22@otro2.com",
     "password": "4321"
   }
 }
@@ -110,3 +110,37 @@ Content-Type: application/json
 ### Delete customer
 DELETE http://{{host}}:{{port}}/api/v1/customers/2
 
+### Get all orders
+GET http://{{host}}:{{port}}/api/v1/orders/
+
+### Get one order
+GET http://{{host}}:{{port}}/api/v1/orders/1
+
+### Create order
+POST http://{{host}}:{{port}}/api/v1/orders/
+Content-Type: application/json
+
+{
+  "customerId": 1
+}
+
+### Update order
+PATCH http://{{host}}:{{port}}/api/v1/orders/1
+Content-Type: application/json
+
+{
+  "customerId": 2
+}
+
+### Delete order
+DELETE http://{{host}}:{{port}}/api/v1/orders/1
+
+### Create orders products
+POST http://{{host}}:{{port}}/api/v1/orders/add-item
+Content-Type: application/json
+
+{
+  "orderId": 1,
+  "productId": 2,
+  "amount": 30
+}
