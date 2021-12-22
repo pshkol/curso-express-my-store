@@ -1,5 +1,5 @@
 ### Totos los productos
-GET http://{{host}}:{{port}}/api/v1/products
+GET http://{{host}}:{{port}}/api/v1/products?limit=2&offset=0
 
 ### Un solo producto
 GET http://{{host}}:{{port}}/api/v1/products/4
@@ -9,7 +9,7 @@ POST http://{{host}}:{{port}}/api/v1/products
 Content-Type: application/json
 
 {
-  "name": "product2",
+  "name": "product5",
   "price": 12093,
   "categoryId": 1
 }
