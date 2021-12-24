@@ -1,5 +1,5 @@
 ### Totos los productos
-GET http://{{host}}:{{port}}/api/v1/products?limit=2&offset=0
+GET http://{{host}}:{{port}}/api/v1/products?limit=2&offset=0&price_min=12093&price_max=12094
 
 ### Un solo producto
 GET http://{{host}}:{{port}}/api/v1/products/4
@@ -10,7 +10,7 @@ Content-Type: application/json
 
 {
   "name": "product5",
-  "price": 12093,
+  "price": 12094,
   "categoryId": 1
 }
 
